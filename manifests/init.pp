@@ -1,5 +1,6 @@
 class fifo_test {
-
+  class { fifo_test::deps: }
+  
   file { '/data' :
     ensure  => directory,
     group   => root,
