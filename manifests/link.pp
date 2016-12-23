@@ -10,7 +10,7 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "${dest}/etc" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/etc",
     group   => root,
@@ -19,7 +19,7 @@ class fifo_test::link ( $svc ) {
   }
 
     file { "${dest}/bin" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/bin",
     group   => root,
@@ -28,7 +28,7 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "${dest}/erts-7.1" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/erts-7.1",
     group   => root,
@@ -37,7 +37,7 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "${dest}/lib" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/lib",
     group   => root,
@@ -46,7 +46,7 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "${dest}/releases" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/releases",
     group   => root,
@@ -55,7 +55,7 @@ class fifo_test::link ( $svc ) {
   }
 
     file { "${dest}/share" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/share",
     group   => root,
@@ -64,7 +64,7 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "${dest}/snmp" :
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => link,
     target   => "${src}/snmp",
     group   => root,
@@ -73,13 +73,13 @@ class fifo_test::link ( $svc ) {
   }
 
   file { "/opt/local/sbin/${svc}":
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => present,
     source  => "/data/code/${svc}/rel/pkg/deploy/sbin/${svc}"
   }
 
   file { "/opt/local/sbin/${svc}-admin":
-    require => [ File[$dest], Exec['make_rel'] ],
+    require => [ File[$dest], Exec["make_rel_${svc}"] ],
     ensure  => present,
     source  => "/data/code/${svc}/rel/pkg/deploy/sbin/${svc}-admin"
   }
