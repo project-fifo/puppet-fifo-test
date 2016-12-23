@@ -10,13 +10,13 @@ define fifo_test::data( $svc ) {
         ensure  => present,
         gid     => $group,
         require => Group[$group],
-        uid     => 2000,
         home    => "/data/${user}",
         shell   => "/bin/false",
         managehome  => true,
   }
 
   file { "/data/${user}":
+    require => User[$user],
     ensure  => 'directory',
     owner  => $user,
     group  => $group,
@@ -24,6 +24,7 @@ define fifo_test::data( $svc ) {
   }
 
   file { "/data/${user}/db":
+    require => User[$user],
     ensure  => 'directory',
     owner  => $user,
     group  => $group,
@@ -31,6 +32,7 @@ define fifo_test::data( $svc ) {
   }
 
   file { "/data/${user}/etc":
+    require => User[$user],
     ensure  => 'directory',
     owner  => $user,
     group  => $group,
@@ -38,6 +40,7 @@ define fifo_test::data( $svc ) {
   }
 
   file { "/data/${user}/log":
+    require => User[$user],
     ensure  => 'directory',
     owner  => $user,
     group  => $group,
