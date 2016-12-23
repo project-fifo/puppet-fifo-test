@@ -16,13 +16,6 @@ define fifo_test::data( $svc ) {
         managehome  => true,
   }
 
-
-  file { '/data':
-    ensure  => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644'
-  }
   file { "/data/${user}":
     ensure  => 'directory',
     owner  => $user,
