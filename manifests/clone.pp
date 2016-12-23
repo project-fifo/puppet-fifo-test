@@ -4,17 +4,6 @@ define fifo_test::clone ($repo) {
 
   $owner = 'root'
 
-  file { '/data/code' :
-    require => [ File['/data'] ],
-    ensure  => directory,
-    group   => root,
-    owner   => root,
-    mode    => '0644',
-  }
-
-  package { 'git':
-    ensure => installed,
-  }
 
   vcsrepo { "/data/code/${repo}":
     ensure   => latest,
