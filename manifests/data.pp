@@ -1,5 +1,7 @@
 class fifo_test::data( $svc ) {
-  $group = $user
+  $user  = $svc
+  $group = $svc
+
   group { $group:
     ensure  => present
   }
