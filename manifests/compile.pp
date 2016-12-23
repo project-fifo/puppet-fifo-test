@@ -8,6 +8,7 @@ define fifo_test::compile ( $svc ) {
                 Package['zlib'],
                 Package['bzip2'],
                 ],
+    timeout => 1800,
     command => 'make rel',
     cwd     => "/data/code/${svc}",
     path    => ['/opt/local/bin/', '/bin/'],
