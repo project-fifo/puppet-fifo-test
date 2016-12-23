@@ -1,4 +1,4 @@
-class fifo_test::data( $svc ) {
+define fifo_test::data( $svc ) {
   $user  = $svc
   $group = $svc
 
