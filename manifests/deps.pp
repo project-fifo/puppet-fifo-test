@@ -4,4 +4,8 @@ class fifo_test::deps {
   package { 'coreutils':  ensure => installed }
   package { 'sudo':       ensure => installed }
   package { 'grep':       ensure => installed }
+  package { 'erlang':     ensure => installed }
+  package { 'gmake':      ensure => installed }
+  package { 'zlib':       ensure => installed }
+  package { 'bzip2':      ensure => installed }
   }

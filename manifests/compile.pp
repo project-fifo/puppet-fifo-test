@@ -1,21 +1,5 @@
 define fifo_test::compile ( $svc ) {
 
-  package { 'erlang':
-    ensure => installed,
-  }
-
-  package { 'gmake':
-    ensure => installed,
-  }
-
-  package { 'zlib':
-    ensure => installed,
-  }
-
-  package { 'bzip2':
-    ensure => installed,
-  }
-
   exec { "make_rel_${svc}":
     require => [
                 Vcsrepo["/data/code/${svc}"],
