@@ -1,6 +1,6 @@
 class fifo_test {
   class { fifo_test::deps: }
-  
+
   file { '/data' :
     ensure  => directory,
     group   => root,
@@ -14,6 +14,12 @@ class fifo_test {
     group   => root,
     owner   => root,
     mode    => '0644',
+  }
+
+  service { 'svc:/pkgsrc/epmd:default':
+    require  => [ Package[ 'erlang' ] ],
+    enable   => true,
+    ensure   => running,
   }
 
   }
