@@ -1,4 +1,4 @@
-class fifo_test::link ( $svc ) {
+define fifo_test::link ( $svc ) {
   $src  = "/data/code/${svc}/_build/prod/rel/${svc}"
   $dest = "/opt/local/fifo-${svc}"
 

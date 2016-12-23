@@ -1,10 +1,11 @@
-class fifo_test::svcs ( $svc ){
+define fifo_test::svcs ( $svc ){
 
   service { 'svc:/pkgsrc/epmd:default':
     require  => [ Package[ 'erlang' ] ],
     enable   => true,
     ensure   => running,
   }
+  
   service { "svc:/network/${svc}:default":
     require => [
                 Service[ 'svc:/pkgsrc/epmd:default' ],

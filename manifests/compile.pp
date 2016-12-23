@@ -1,4 +1,4 @@
-class fifo_test::compile ( $svc ) {
+define fifo_test::compile ( $svc ) {
 
   package { 'erlang':
     ensure => installed,
