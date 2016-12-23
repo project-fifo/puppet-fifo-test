@@ -1,6 +1,6 @@
 class fifo_test::clone($repo) {
 
-  class { fifo_test::data: service => $repo  }
+  class { fifo_test::data: svc => $repo  }
 
   $owner = 'root'
 

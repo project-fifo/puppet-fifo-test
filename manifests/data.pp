@@ -1,4 +1,4 @@
-class fifo_test::data( $user ) {
+class fifo_test::data( $svc ) {
   $group = $user
   group { $group:
     ensure  => present
