@@ -1,7 +1,4 @@
 class fifo_test {
-  package { 'git':
-    ensure => installed,
-  }
 
   file { '/data' :
     ensure  => directory,
