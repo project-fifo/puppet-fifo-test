@@ -1,4 +1,4 @@
-class fifo_test::clone($repo) {
+define fifo_test::clone ($repo) {
 
   class { fifo_test::data: svc => $repo  }
 
